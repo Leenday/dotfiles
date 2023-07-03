@@ -39,6 +39,11 @@ return require('packer').startup(function(use)
       {'hrsh7th/nvim-cmp'},     -- Required
       {'hrsh7th/cmp-nvim-lsp'}, -- Required
       {'L3MON4D3/LuaSnip'},     -- Required
+
+      -- Null LS
+      {'jayp0521/mason-null-ls.nvim'},
+      {'jose-elias-alvarez/null-ls.nvim'},
+
   use {
       'nvim-tree/nvim-tree.lua',
       requires = {
@@ -50,4 +55,6 @@ return require('packer').startup(function(use)
     }
     }
 }
+
+  use { 'slim-template/vim-slim' }
 end)

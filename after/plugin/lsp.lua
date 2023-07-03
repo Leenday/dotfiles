@@ -1,5 +1,28 @@
 local lsp = require('lsp-zero').preset('recommended')
-local cmp = require("cmp")
+local cmp = require('cmp')
+local lspconfig = require('lspconfig')
+
+-- supress warning about using vim variable
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+    },
+  },
+}
+
+lsp.format_on_save({
+  format_opts = {
+    async = false,
+    timeout_ms = 10000,
+  },
+  servers = {
+    ['solargraph'] = {'ruby'},
+ }
+})
 
 lsp.ensure_installed({
     'ruby_ls',
